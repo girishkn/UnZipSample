@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.gkn.helper.ExtractZipFileUsingZip4j;
+import com.gkn.helper.ZipUtility;
 
 
 public class MainActivity extends Activity {
@@ -29,6 +30,7 @@ public class MainActivity extends Activity {
 
             boolean result;
             result = ExtractZipFileUsingZip4j.extractZipFile(zipFilePath, unZipPath);
+//            result = ZipUtility.unZip(zipFilePath, unZipPath);
             if (result) {
                 Log.d(TAG, "Zip file " + zipFilePath + " extracted to " + unZipPath);
             } else {

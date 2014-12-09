@@ -22,12 +22,15 @@ public class MainActivity extends Activity {
         String zipFileName = "1415644062";
 
         String zipFilePath = "/sdcard/" + zipFileName + ".zip";
+        Log.d(TAG, "zipFilePath: " + zipFilePath);
         if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
             String unZipPath = getExternalFilesDir(null).getPath();
+            Log.d(TAG, "unZipPath: " + unZipPath);
 
-            boolean result = ExtractZipFileUsingZip4j.extractZipFile(zipFilePath, unZipPath);
+            boolean result;
+            result = ExtractZipFileUsingZip4j.extractZipFile(zipFilePath, unZipPath);
             if (result) {
-                Log.d(TAG, "Zip file " + zipFilePath + "extracted to " + unZipPath);
+                Log.d(TAG, "Zip file " + zipFilePath + " extracted to " + unZipPath);
             } else {
                 Log.d(TAG, "Unzip Zip file " + zipFilePath + "Failed!");
             }

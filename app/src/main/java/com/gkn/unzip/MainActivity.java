@@ -7,12 +7,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.gkn.zip4j.ExtractZipFile;
-
-import net.lingala.zip4j.core.ZipFile;
-import net.lingala.zip4j.exception.ZipException;
-
-import java.io.File;
+import com.gkn.helper.ExtractZipFileUsingZip4j;
 
 
 public class MainActivity extends Activity {
@@ -30,7 +25,7 @@ public class MainActivity extends Activity {
         if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
             String unZipPath = getExternalFilesDir(null).getPath();
 
-            boolean result = ExtractZipFile.extractZipFile(zipFilePath, unZipPath);
+            boolean result = ExtractZipFileUsingZip4j.extractZipFile(zipFilePath, unZipPath);
             if (result) {
                 Log.d(TAG, "Zip file " + zipFilePath + "extracted to " + unZipPath);
             } else {
